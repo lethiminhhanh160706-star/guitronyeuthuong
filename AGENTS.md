@@ -28,3 +28,12 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Team roster is the single source of truth: keep member data in the exported
+  `MEMBERS` array in `src/routes/doi-ngu.tsx` and update
+  `src/test/team-members.test.ts` whenever it changes, so the page can never
+  drift to a different member count.
+- Unsupplied information stays as `[CẦN BỔ SUNG: …]` placeholders in the route
+  files rather than invented copy.

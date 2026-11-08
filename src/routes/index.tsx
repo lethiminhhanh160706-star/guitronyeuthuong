@@ -15,7 +15,7 @@ function Index() {
         <img src={hero} alt="Trà sâm Trường Nhân" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover opacity-45" />
         <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/80 to-transparent" />
         <div className="relative mx-auto max-w-6xl px-4 py-28 md:py-40">
-          <p className="text-xs uppercase tracking-[0.35em] text-gold">Đội [CẦN BỔ SUNG: Tên đội] · DBC2026</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-gold">Đội RUBY · DBC2026</p>
           <h1 className="mt-6 max-w-2xl text-5xl leading-tight md:text-7xl">
             Gửi trọn <span className="text-gradient-gold italic">yêu thương</span>
           </h1>
