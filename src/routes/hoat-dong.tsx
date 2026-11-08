@@ -9,9 +9,9 @@ export const Route = createFileRoute("/hoat-dong")({
 
 const tabs = ["Tất cả", "TikTok", "Facebook", "Hình ảnh"] as const;
 const items = [
-  ...[1, 2, 3].map((i) => ({ type: "TikTok", label: `[Video TikTok ${i}]`, ratio: "aspect-[9/16]" })),
-  ...[1, 2, 3].map((i) => ({ type: "Facebook", label: `[Bài đăng Facebook ${i}]`, ratio: "aspect-square" })),
-  ...[1, 2, 3].map((i) => ({ type: "Hình ảnh", label: `[Hình ảnh chiến dịch ${i}]`, ratio: "aspect-[4/3]" })),
+  ...[1, 2, 3].map((i) => ({ type: "TikTok", label: `[CẦN BỔ SUNG: Video TikTok ${i}]`, ratio: "aspect-[9/16]" })),
+  ...[1, 2, 3].map((i) => ({ type: "Facebook", label: `[CẦN BỔ SUNG: Bài đăng Facebook ${i}]`, ratio: "aspect-square" })),
+  ...[1, 2, 3].map((i) => ({ type: "Hình ảnh", label: `[CẦN BỔ SUNG: Hình ảnh chiến dịch ${i}]`, ratio: "aspect-[4/3]" })),
 ];
 
 function Activities() {
@@ -32,7 +32,7 @@ function Activities() {
           {shown.map((it) => (
             <Card key={it.label} className="p-3">
               <Placeholder label={it.label} className={it.ratio} />
-              <p className="mt-3 px-1 text-sm text-muted-foreground"><span className="font-medium text-accent">{it.type}</span> · [Mô tả / link bài đăng]</p>
+              <p className="mt-3 px-1 text-sm text-muted-foreground"><span className="font-medium text-accent">{it.type}</span> · [CẦN BỔ SUNG: Mô tả / link bài đăng]</p>
             </Card>
           ))}
         </div>

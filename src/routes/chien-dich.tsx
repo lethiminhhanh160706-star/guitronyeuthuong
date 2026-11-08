@@ -14,19 +14,19 @@ function Campaign() {
   const [active, setActive] = useState(1);
   return (
     <>
-      <PageHero eyebrow="Chiến dịch" title="Gửi trọn yêu thương" desc="[Tóm tắt chiến dịch]" />
+      <PageHero eyebrow="Chiến dịch" title="Gửi trọn yêu thương" desc="[CẦN BỔ SUNG: Tóm tắt chiến dịch]" />
       <Section eyebrow="Ý tưởng" title="Ý tưởng chiến dịch">
         <div className="grid items-center gap-10 md:grid-cols-2">
-          <p className="text-muted-foreground">[Mô tả ý tưởng chủ đạo (Big Idea) của chiến dịch.]</p>
+          <p className="text-muted-foreground">[CẦN BỔ SUNG: Mô tả ý tưởng chủ đạo (Big Idea) của chiến dịch]</p>
           <img src={love} alt="Gửi trọn yêu thương" loading="lazy" width={1200} height={912} className="rounded-lg shadow-elegant" />
         </div>
       </Section>
       <section className="bg-secondary">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 py-16 md:grid-cols-3">
           {[
-            ["Mục tiêu", "[Mục tiêu chiến dịch]"],
-            ["Đối tượng mục tiêu", "[Mô tả khách hàng mục tiêu]"],
-            ["Thông điệp chính", "[Thông điệp chủ đạo]"],
+            ["Mục tiêu", "[CẦN BỔ SUNG: Mục tiêu chiến dịch]"],
+            ["Đối tượng mục tiêu", "[CẦN BỔ SUNG: Mô tả khách hàng mục tiêu]"],
+            ["Thông điệp chính", "[CẦN BỔ SUNG: Thông điệp chủ đạo]"],
           ].map(([t, d]) => (
             <Card key={t}>
               <h3 className="text-2xl text-primary">{t}</h3>
@@ -50,8 +50,8 @@ function Campaign() {
         </div>
         <Card className="mt-6">
           <p className="text-xs uppercase tracking-widest text-accent">Tuần {active}</p>
-          <h3 className="mt-2 text-2xl text-primary">[Giai đoạn / tên hoạt động tuần {active}]</h3>
-          <p className="mt-3 text-muted-foreground">[Nội dung, kênh triển khai và KPI tuần {active}]</p>
+          <h3 className="mt-2 text-2xl text-primary">[CẦN BỔ SUNG: Giai đoạn / tên hoạt động tuần {active}]</h3>
+          <p className="mt-3 text-muted-foreground">[CẦN BỔ SUNG: Nội dung, kênh triển khai và KPI tuần {active}]</p>
         </Card>
       </Section>
     </>
