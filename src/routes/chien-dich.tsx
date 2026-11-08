@@ -25,7 +25,7 @@ const PHASES = [
   { code: "P1 – GIEO", time: "Tuần 1–2 · 30/11–13/12", goal: "Nhận biết và kiểm chứng insight.", out: "Tối thiểu 14 video, 20 KOC đã nhận mẫu.", kpi: "CTR ≥ 0,8%; có ít nhất 3 mẫu thắng." },
   { code: "P2 – TIN", time: "Tuần 3–4 · 14/12–27/12", goal: "Xây dựng niềm tin và cân nhắc.", out: "Ít nhất 50% KOC đăng bài.", kpi: "Tỷ lệ thêm giỏ ≥ 6% lượt vào Shop." },
   { code: "P3 – TẶNG", time: "Tuần 5–6 · 28/12–10/01", goal: "Thúc đẩy chuyển đổi và bán combo.", out: "Combo chiếm ít nhất 30% đơn.", kpi: "ROAS ≥ 2,0." },
-  { code: "P4 – CHỐT", time: "Tuần 7–8 · 11/01–24/01", goal: "Chốt đơn trong giai đoạn cao điểm.", out: "Đạt mục tiêu đơn hàng/doanh thu và báo cáo cuối chiến dịch.", kpi: "Hoạt động: G8, V6, livestream marathon, remarketing và tổng kết." },
+  { code: "P4 – CHỐT", time: "Tuần 7–8 · 11/01–24/01", goal: "Chốt đơn trong giai đoạn cao điểm.", out: "Đạt mục tiêu đơn hàng/doanh thu và báo cáo cuối chiến dịch.", kpi: "G8, V6, livestream marathon, remarketing và tổng kết." },
 ];
 
 const KPIS = [
