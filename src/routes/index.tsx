@@ -31,7 +31,10 @@ function Index() {
         <div className="grid items-center gap-10 md:grid-cols-2">
           <img src={love} alt="Trao tách trà yêu thương" loading="lazy" width={1200} height={912} className="rounded-lg shadow-elegant" />
           <div className="space-y-4 text-muted-foreground">
-            <p>[CẦN BỔ SUNG: Mô tả ngắn về chiến dịch “Gửi trọn yêu thương”]</p>
+            <p>
+              <strong className="font-semibold text-primary">“Gửi trọn yêu thương”</strong> là chiến dịch Digital Marketing dành cho sản phẩm Trà Sâm Trường Nhân, được triển khai trong 8 tuần, từ ngày 30/11/2026 đến 24/01/2027, hướng đến mùa mua sắm Tết. Chiến dịch lấy ý tưởng chủ đạo{" "}
+              <strong className="font-semibold text-accent italic">“7 phút bên cha mẹ”</strong>, kết nối thời gian hãm trà 5–7 phút với hành động gọi điện hoặc video call hỏi thăm bố mẹ. Thông qua nội dung truyền thông giàu cảm xúc, thông tin minh bạch về sản phẩm và các hoạt động quảng bá trên TikTok, TikTok Shop và Facebook, chiến dịch hướng đến xây dựng niềm tin, gia tăng nhận diện thương hiệu và thúc đẩy hành vi mua hàng, đặc biệt là nhu cầu mua trà làm quà tặng dịp Tết.
+            </p>
             <Link to="/chien-dich" className="inline-block font-medium text-primary underline decoration-gold underline-offset-4">Xem chi tiết chiến dịch →</Link>
           </div>
         </div>
