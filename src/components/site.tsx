@@ -26,7 +26,7 @@ export function Header() {
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-gold">
             <Leaf className="h-5 w-5" />
           </span>
-          <span className="font-display text-lg font-semibold text-primary">[CẦN BỔ SUNG: Tên đội]</span>
+          <span className="font-display text-lg font-semibold text-primary">Đội RUBY</span>
         </Link>
         <nav className="hidden gap-6 md:flex">
           {NAV.map((n) => (
@@ -77,7 +77,7 @@ export function Footer() {
         </div>
       </div>
       <p className="border-t border-gold/20 py-4 text-center text-xs opacity-60">
-        © 2026 [CẦN BỔ SUNG: Tên đội] – Cuộc thi Digital Marketing DBC2026
+        © 2026 Đội RUBY – Cuộc thi Digital Marketing DBC2026
       </p>
     </footer>
   );
