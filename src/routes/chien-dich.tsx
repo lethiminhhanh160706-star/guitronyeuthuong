@@ -61,7 +61,8 @@ function Note({ children }: { children: string }) {
 
 function Campaign() {
   const [active, setActive] = useState(1);
-  const w = WEEKS[active - 1];
+  const w = WEEKS[active - 1] ?? WEEKS[0]!;
+  const phase = PHASES[Math.floor((w.n - 1) / 2)] ?? PHASES[0]!;
   return (
     <>
       <PageHero eyebrow="Chiến dịch · 30/11/2026 – 24/01/2027" title="Gửi trọn yêu thương" desc="Chiến dịch Digital Marketing 8 tuần cho Trà Sâm Trường Nhân trên TikTok và TikTok Shop." />
@@ -181,7 +182,7 @@ function Campaign() {
             ))}
           </div>
           <Card className="mt-6">
-            <p className="text-xs uppercase tracking-widest text-accent">Tuần {w.n} · {PHASES[Math.floor((w.n - 1) / 2)].code}</p>
+            <p className="text-xs uppercase tracking-widest text-accent">Tuần {w.n} · {phase.code}</p>
             <h3 className="mt-1 text-2xl text-primary">{w.title}</h3>
             <div className="gold-rule my-4" />
             <div className="grid gap-6 md:grid-cols-3">
