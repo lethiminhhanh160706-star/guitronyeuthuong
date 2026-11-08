@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Eye, Heart, ShoppingCart, Gift, Star } from "lucide-react";
+import { Eye, Heart, ShoppingCart, Gift, Star, type LucideIcon } from "lucide-react";
 import love from "@/assets/campaign-love.jpg";
 import { PageHero, Section, Card, meta } from "@/components/site";
 
@@ -29,11 +29,13 @@ const PHASES = [
   { code: "P4 – CHỐT", time: "Tuần 7–8 · 11/01–24/01", goal: "Chốt đơn trong giai đoạn cao điểm.", out: "Đạt mục tiêu đơn hàng/doanh thu và báo cáo cuối chiến dịch.", kpi: "G8, V6, livestream marathon, remarketing và tổng kết." },
 ];
 
-const KPIS = [
+type Kpi = { code: string; name: string; icon: LucideIcon; items: [string, string][]; hero?: boolean };
+
+const KPIS: Kpi[] = [
   { code: "M1", name: "Nhận biết", icon: Eye, items: [["≥ 1,7 triệu", "người xem duy nhất tiếp cận quảng cáo TikTok"], ["≥ 5,2 triệu", "tổng lượt xem/hiển thị video"]] },
   { code: "M2", name: "Quan tâm và niềm tin", icon: Heart, items: [["≥ 40.000", "lượt nhấp vào gian hàng từ quảng cáo"], ["≥ 5.000", "người theo dõi mới TikTok/Shop"]] },
   { code: "M3", name: "Chuyển đổi và doanh thu", icon: ShoppingCart, items: [["≥ 2.200", "đơn hàng"], ["≥ 1.200 triệu đồng", "doanh thu GMV"], ["≥ 2,4", "ROAS tổng"]] },
-  { code: "M4", name: "Quà tặng", icon: Gift, items: [["≥ 35%", "tỷ lệ đơn combo 2–3 hộp"]] },
+  { code: "M4", name: "Quà tặng", icon: Gift, hero: true, items: [["≥ 35%", "tỷ lệ đơn combo 2–3 hộp"]] },
   { code: "M5", name: "Chất lượng dịch vụ", icon: Star, items: [["≥ 4,7/5", "điểm đánh giá gian hàng"], ["≥ 95%", "chat được phản hồi trong 15 phút"]] },
 ];
 
@@ -137,8 +139,8 @@ function Campaign() {
                   <div className="flex flex-1 flex-col justify-center space-y-3">
                     {k.items.map(([n, l]) => (
                       <div key={l}>
-                        <p className="font-display text-2xl text-primary">{n}</p>
-                        <p className="text-sm text-muted-foreground">{l}</p>
+                        <p className={`font-display text-primary ${k.hero ? "text-4xl" : "text-2xl"}`}>{n}</p>
+                        <p className={`${k.hero ? "text-base" : "text-sm"} text-muted-foreground`}>{l}</p>
                       </div>
                     ))}
                   </div>
