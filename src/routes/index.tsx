@@ -1,23 +1,51 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import hero from "@/assets/hero-tea.jpg";
+import love from "@/assets/campaign-love.jpg";
+import { Section, meta, NAV } from "@/components/site";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => meta("Gửi trọn yêu thương – Trà Sâm Trường Nhân | DBC2026", "Trang chủ đội thi DBC2026 với dự án Trường Nhân – Trà Sâm và chiến dịch Gửi trọn yêu thương."),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <section className="relative overflow-hidden bg-forest text-forest-foreground">
+        <img src={hero} alt="Trà sâm Trường Nhân" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover opacity-45" />
+        <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/80 to-transparent" />
+        <div className="relative mx-auto max-w-6xl px-4 py-28 md:py-40">
+          <p className="text-xs uppercase tracking-[0.35em] text-gold">Đội [Tên đội] · DBC2026</p>
+          <h1 className="mt-6 max-w-2xl text-5xl leading-tight md:text-7xl">
+            Gửi trọn <span className="text-gradient-gold italic">yêu thương</span>
+          </h1>
+          <p className="mt-6 max-w-lg text-lg opacity-85">Dự án Trường Nhân – Trà Sâm · Cuộc thi Digital Marketing DBC2026</p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link to="/chien-dich" className="rounded-md bg-gold px-6 py-3 font-medium text-accent-foreground transition hover:bg-gold-soft">Khám phá chiến dịch</Link>
+            <Link to="/doi-ngu" className="rounded-md border border-gold/60 px-6 py-3 text-gold-soft transition hover:bg-gold/10">Gặp gỡ đội thi</Link>
+          </div>
+        </div>
+      </section>
+
+      <Section eyebrow="Về chiến dịch" title="Một tách trà, trọn vẹn yêu thương">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <img src={love} alt="Trao tách trà yêu thương" loading="lazy" width={1200} height={912} className="rounded-lg shadow-elegant" />
+          <div className="space-y-4 text-muted-foreground">
+            <p>[Mô tả ngắn về chiến dịch “Gửi trọn yêu thương” – sẽ được cập nhật bởi đội thi.]</p>
+            <Link to="/chien-dich" className="inline-block font-medium text-primary underline decoration-gold underline-offset-4">Xem chi tiết chiến dịch →</Link>
+          </div>
+        </div>
+      </Section>
+
+      <section className="bg-secondary">
+        <div className="mx-auto grid max-w-6xl gap-4 px-4 py-14 sm:grid-cols-2 md:grid-cols-5">
+          {NAV.slice(1).map((n) => (
+            <Link key={n.to} to={n.to} className="rounded-lg border border-border bg-card p-5 text-center font-display text-lg text-primary transition hover:border-gold hover:shadow-elegant">
+              {n.label}
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
