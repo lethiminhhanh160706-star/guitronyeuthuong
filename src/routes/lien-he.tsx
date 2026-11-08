@@ -7,7 +7,7 @@ export const Route = createFileRoute("/lien-he")({
   component: Contact,
 });
 
-const TEAM_EMAIL = ""; // [Email đội] – cập nhật khi có
+const TEAM_EMAIL = ""; // [CẦN BỔ SUNG: Email đội] – cập nhật khi có
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -33,7 +33,7 @@ function Contact() {
         <div className="grid gap-8 md:grid-cols-2">
           <Card>
             <dl className="space-y-4">
-              {[["Đội thi", "[Tên đội]"], ["Email", "[Email đội]"], ["Điện thoại", "[Số điện thoại]"], ["Trường / Đơn vị", "[Tên trường]"]].map(([k, v]) => (
+              {[["Đội thi", "[CẦN BỔ SUNG: Tên đội]"], ["Email", "[CẦN BỔ SUNG: Email đội]"], ["Điện thoại", "[CẦN BỔ SUNG: Số điện thoại]"], ["Trường / Đơn vị", "[CẦN BỔ SUNG: Tên trường]"]].map(([k, v]) => (
                 <div key={k}><dt className="text-xs uppercase tracking-widest text-accent">{k}</dt><dd className="text-primary">{v}</dd></div>
               ))}
             </dl>
