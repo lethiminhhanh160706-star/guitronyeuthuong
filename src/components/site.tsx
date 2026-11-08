@@ -12,9 +12,9 @@ export const NAV = [
 ] as const;
 
 export const SOCIALS = [
-  { label: "Facebook", href: "#", note: "[Link Facebook]" },
-  { label: "TikTok", href: "#", note: "[Link TikTok]" },
-  { label: "Instagram", href: "#", note: "[Link Instagram]" },
+  { label: "Facebook", href: "#", note: "[CẦN BỔ SUNG: Link Facebook]" },
+  { label: "TikTok", href: "#", note: "[CẦN BỔ SUNG: Link TikTok]" },
+  { label: "Instagram", href: "#", note: "[CẦN BỔ SUNG: Link Instagram]" },
 ];
 
 export function Header() {
@@ -26,7 +26,7 @@ export function Header() {
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-gold">
             <Leaf className="h-5 w-5" />
           </span>
-          <span className="font-display text-lg font-semibold text-primary">[Tên đội]</span>
+          <span className="font-display text-lg font-semibold text-primary">[CẦN BỔ SUNG: Tên đội]</span>
         </Link>
         <nav className="hidden gap-6 md:flex">
           {NAV.map((n) => (
@@ -67,8 +67,8 @@ export function Footer() {
           <p className="mt-2 text-sm opacity-80">Chiến dịch “Gửi trọn yêu thương” · DBC2026</p>
         </div>
         <div className="text-sm opacity-80">
-          <p>Email: [Email đội]</p>
-          <p>Điện thoại: [Số điện thoại]</p>
+          <p>Email: [CẦN BỔ SUNG: Email đội]</p>
+          <p>Điện thoại: [CẦN BỔ SUNG: Số điện thoại]</p>
         </div>
         <div className="flex gap-4 text-sm">
           {SOCIALS.map((s) => (
@@ -77,7 +77,7 @@ export function Footer() {
         </div>
       </div>
       <p className="border-t border-gold/20 py-4 text-center text-xs opacity-60">
-        © 2026 [Tên đội] – Cuộc thi Digital Marketing DBC2026
+        © 2026 [CẦN BỔ SUNG: Tên đội] – Cuộc thi Digital Marketing DBC2026
       </p>
     </footer>
   );
