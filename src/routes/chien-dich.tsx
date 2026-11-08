@@ -132,11 +132,12 @@ function Campaign() {
                 <Card key={k.code} className={`flex h-full flex-col lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""}`}>
                   <div className="flex items-start justify-between gap-3">
                     <span className="shrink-0 rounded-full border border-gold/50 bg-secondary px-3 py-1 font-display text-sm font-semibold tracking-[0.2em] text-accent">{k.code}</span>
-                    <Icon className="h-5 w-5 shrink-0 text-gold" aria-hidden />
+                    {!k.hero && <Icon className="h-5 w-5 shrink-0 text-gold" aria-hidden />}
                   </div>
                   <h3 className="mt-3 min-h-[3.25rem] text-lg font-semibold leading-snug text-primary">{k.name}</h3>
                   <div className="gold-rule my-3" />
-                  <div className="flex flex-1 flex-col justify-center space-y-3">
+                  <div className={`flex flex-1 flex-col justify-center space-y-3 ${k.hero ? "items-center text-center" : ""}`}>
+                    {k.hero && <Icon className="h-12 w-12 text-gold" aria-hidden />}
                     {k.items.map(([n, l]) => (
                       <div key={l}>
                         <p className={`font-display text-primary ${k.hero ? "text-6xl" : "text-2xl"}`}>{n}</p>
