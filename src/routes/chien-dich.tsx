@@ -202,7 +202,7 @@ function Campaign() {
                 <div className="gold-rule my-3" />
                 <p className="text-sm"><strong className="text-primary">Mục tiêu:</strong> <span className="text-muted-foreground">{p.goal}</span></p>
                 <p className="mt-2 text-sm"><strong className="text-primary">Đầu ra:</strong> <span className="text-muted-foreground">{p.out}</span></p>
-                <p className="mt-2 text-sm"><strong className="text-primary">{p.code.startsWith("P4") ? "Ghi chú:" : "KPI chuyển giai đoạn:"}</strong> <span className="text-muted-foreground">{p.kpi}</span></p>
+                <p className="mt-2 text-sm"><strong className="text-primary">{p.code.startsWith("P4") ? "Hoạt động:" : "KPI chuyển giai đoạn:"}</strong> <span className="text-muted-foreground">{p.kpi}</span></p>
               </Card>
             ))}
           </div>
