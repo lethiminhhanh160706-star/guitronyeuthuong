@@ -139,8 +139,8 @@ function Campaign() {
                   <div className="flex flex-1 flex-col justify-center space-y-3">
                     {k.items.map(([n, l]) => (
                       <div key={l}>
-                        <p className={`font-display text-primary ${k.hero ? "text-4xl" : "text-2xl"}`}>{n}</p>
-                        <p className={`${k.hero ? "text-base" : "text-sm"} text-muted-foreground`}>{l}</p>
+                        <p className={`font-display text-primary ${k.hero ? "text-6xl" : "text-2xl"}`}>{n}</p>
+                        <p className={`${k.hero ? "text-lg" : "text-sm"} text-muted-foreground`}>{l}</p>
                       </div>
                     ))}
                   </div>
