@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Eye, Heart, ShoppingCart, Gift, Star, type LucideIcon } from "lucide-react";
 import love from "@/assets/campaign-love.jpg";
 import { PageHero, Section, Card, meta } from "@/components/site";
 
@@ -28,12 +29,14 @@ const PHASES = [
   { code: "P4 – CHỐT", time: "Tuần 7–8 · 11/01–24/01", goal: "Chốt đơn trong giai đoạn cao điểm.", out: "Đạt mục tiêu đơn hàng/doanh thu và báo cáo cuối chiến dịch.", kpi: "G8, V6, livestream marathon, remarketing và tổng kết." },
 ];
 
-const KPIS = [
-  { code: "M1", name: "Nhận biết", items: [["≥ 1,7 triệu", "người xem duy nhất tiếp cận quảng cáo TikTok"], ["≥ 5,2 triệu", "tổng lượt xem/hiển thị video"]] },
-  { code: "M2", name: "Quan tâm và niềm tin", items: [["≥ 40.000", "lượt nhấp vào gian hàng từ quảng cáo"], ["≥ 5.000", "người theo dõi mới TikTok/Shop"]] },
-  { code: "M3", name: "Chuyển đổi và doanh thu", items: [["≥ 2.200", "đơn hàng"], ["≥ 1.200 triệu đồng", "doanh thu GMV"], ["≥ 2,4", "ROAS tổng"]] },
-  { code: "M4", name: "Quà tặng", items: [["≥ 35%", "tỷ lệ đơn combo 2–3 hộp"]] },
-  { code: "M5", name: "Chất lượng dịch vụ", items: [["≥ 4,7/5", "điểm đánh giá gian hàng"], ["≥ 95%", "chat được phản hồi trong 15 phút"]] },
+type Kpi = { code: string; name: string; icon: LucideIcon; items: [string, string][]; hero?: boolean };
+
+const KPIS: Kpi[] = [
+  { code: "M1", name: "Nhận biết", icon: Eye, items: [["≥ 1,7 triệu", "người xem duy nhất tiếp cận quảng cáo TikTok"], ["≥ 5,2 triệu", "tổng lượt xem/hiển thị video"]] },
+  { code: "M2", name: "Quan tâm và niềm tin", icon: Heart, items: [["≥ 40.000", "lượt nhấp vào gian hàng từ quảng cáo"], ["≥ 5.000", "người theo dõi mới TikTok/Shop"]] },
+  { code: "M3", name: "Chuyển đổi và doanh thu", icon: ShoppingCart, items: [["≥ 2.200", "đơn hàng"], ["≥ 1.200 triệu đồng", "doanh thu GMV"], ["≥ 2,4", "ROAS tổng"]] },
+  { code: "M4", name: "Quà tặng", icon: Gift, hero: true, items: [["≥ 35%", "tỷ lệ đơn combo 2–3 hộp"]] },
+  { code: "M5", name: "Chất lượng dịch vụ", icon: Star, items: [["≥ 4,7/5", "điểm đánh giá gian hàng"], ["≥ 95%", "chat được phản hồi trong 15 phút"]] },
 ];
 
 const AUDIENCES = [
@@ -122,17 +125,28 @@ function Campaign() {
       <div id="muc-tieu" className="scroll-mt-32">
         <Section eyebrow="Mục tiêu SMART" title="Mục tiêu toàn chiến dịch">
           <p className="text-muted-foreground">Thời gian thực hiện: 30/11/2026 – 24/01/2027.</p>
-          <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {KPIS.map((k) => (
-              <Card key={k.code}>
-                <p className="text-xs uppercase tracking-widest text-accent">{k.code}</p>
-                <h3 className="text-xl text-primary">{k.name}</h3>
-                <div className="gold-rule my-3" />
-                <div className="space-y-3">
-                  {k.items.map(([n, l]) => (<div key={l}><p className="font-display text-2xl text-primary">{n}</p><p className="text-sm text-muted-foreground">{l}</p></div>))}
-                </div>
-              </Card>
-            ))}
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:auto-rows-fr lg:grid-cols-6">
+            {KPIS.map((k, i) => {
+              const Icon = k.icon;
+              return (
+                <Card key={k.code} className={`flex h-full flex-col lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""}`}>
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="shrink-0 rounded-full border border-gold/50 bg-secondary px-3 py-1 font-display text-sm font-semibold tracking-[0.2em] text-accent">{k.code}</span>
+                    <Icon className="h-5 w-5 shrink-0 text-gold" aria-hidden />
+                  </div>
+                  <h3 className="mt-3 min-h-[3.25rem] text-lg font-semibold leading-snug text-primary">{k.name}</h3>
+                  <div className="gold-rule my-3" />
+                  <div className="flex flex-1 flex-col justify-center space-y-3">
+                    {k.items.map(([n, l]) => (
+                      <div key={l}>
+                        <p className={`font-display text-primary ${k.hero ? "text-7xl" : "text-2xl"}`}>{n}</p>
+                        <p className={`${k.hero ? "text-xl" : "text-sm"} text-muted-foreground`}>{l}</p>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              );
+            })}
           </div>
           <Note>Chú thích: Đây là mục tiêu kế hoạch được nhóm xây dựng, không phải số liệu đã đạt được.</Note>
         </Section>
