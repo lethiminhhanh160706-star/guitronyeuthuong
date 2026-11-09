@@ -117,6 +117,7 @@ export function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  referrerPolicy="no-referrer"
                   className="group flex items-center gap-3 rounded-lg border border-gold/20 bg-white/5 px-3 py-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-gold/60 hover:bg-white/10"
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold transition-colors duration-200 group-hover:bg-gold group-hover:text-primary">
