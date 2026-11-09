@@ -55,21 +55,32 @@ export const MEMBERS: Member[] = [
   },
 ];
 
-function Portrait() {
+function Portrait({ photo, name }: { photo?: string; name: string }) {
   return (
-    <div className="flex aspect-square w-36 items-center justify-center rounded-full border-2 border-dashed border-gold/50 bg-muted">
-      <div className="px-3 text-center">
-        <User className="mx-auto h-8 w-8 text-gold" aria-hidden />
-        <p className="mt-1 text-[11px] leading-tight text-muted-foreground">[CẦN BỔ SUNG: Ảnh chân dung]</p>
-      </div>
+    <div className="relative aspect-[3/4] w-full max-w-[240px] overflow-hidden rounded-xl border border-gold/40 bg-muted transition-colors duration-300 group-hover:border-gold/80">
+      {photo ? (
+        <img
+          src={photo}
+          alt={`Ảnh chân dung ${name}`}
+          loading="lazy"
+          className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+        />
+      ) : (
+        <div className="flex h-full w-full items-center justify-center border-2 border-dashed border-gold/50 p-3 text-center">
+          <div>
+            <User className="mx-auto h-8 w-8 text-gold" aria-hidden />
+            <p className="mt-1 text-[11px] leading-tight text-muted-foreground">[CẦN BỔ SUNG: Ảnh chân dung]</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 function MemberCard({ member }: { member: Member }) {
   return (
-    <Card className="flex h-full flex-col items-center text-center">
-      <Portrait />
+    <Card className="group flex h-full flex-col items-center text-center">
+      <Portrait photo={member.photo} name={member.name} />
       <h3 className="mt-5 font-display text-lg font-semibold uppercase tracking-wide text-primary">{member.name}</h3>
       <p className="mt-3 inline-flex items-center rounded-full border border-gold/40 bg-secondary px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
         {member.role}
