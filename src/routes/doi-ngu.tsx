@@ -55,7 +55,7 @@ export const MEMBERS: Member[] = [
   },
 ];
 
-function Portrait({ photo, name }: { photo?: string; name: string }) {
+function Portrait({ photo, name }: { photo: string | undefined; name: string }) {
   return (
     <div className="relative aspect-[3/4] w-full max-w-[240px] overflow-hidden rounded-xl border border-gold/40 bg-muted transition-colors duration-300 group-hover:border-gold/80">
       {photo ? (
