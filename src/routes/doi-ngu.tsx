@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { User } from "lucide-react";
 import { PageHero, Section, Placeholder, Card, meta } from "@/components/site";
+import minhHanhPhoto from "@/assets/chan-dung-le-thi-minh-hanh.png.asset.json";
+import linhChiPhoto from "@/assets/chan-dung-vu-thi-linh-chi.jpg.asset.json";
 
 export const Route = createFileRoute("/doi-ngu")({
   head: () =>
@@ -15,11 +17,13 @@ export type Member = {
   name: string;
   role: string;
   duties: string[];
+  photo?: string;
 };
 
 export const MEMBERS: Member[] = [
   {
     name: "LÊ THỊ MINH HẠNH",
+    photo: minhHanhPhoto.url,
     role: "Trưởng nhóm – Phụ trách nội dung và tài liệu dự án",
     duties: [
       "Điều phối và phân công công việc trong nhóm.",
@@ -30,6 +34,7 @@ export const MEMBERS: Member[] = [
   },
   {
     name: "VŨ THỊ LINH CHI",
+    photo: linhChiPhoto.url,
     role: "Phụ trách thiết kế và thuyết trình",
     duties: [
       "Thiết kế và xây dựng slide thuyết trình dự án bằng PowerPoint.",
