@@ -107,10 +107,29 @@ export function Footer() {
           <p>Email: [CẦN BỔ SUNG: Email đội]</p>
           <p>Điện thoại: [CẦN BỔ SUNG: Số điện thoại]</p>
         </div>
-        <div className="flex gap-4 text-sm">
-          {SOCIALS.map((s) => (
-            <a key={s.label} href={s.href} className="text-gold-soft hover:text-gold">{s.label}</a>
-          ))}
+        <div>
+          <p className="font-display text-lg text-gold">Kết nối với RUBY</p>
+          <div className="gold-rule mt-3" />
+          <ul className="mt-5 space-y-3">
+            {SOCIAL_LINKS.map(({ label, handle, href, icon: Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 rounded-lg border border-gold/20 bg-white/5 px-3 py-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-gold/60 hover:bg-white/10"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold transition-colors duration-200 group-hover:bg-gold group-hover:text-primary">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-sm font-medium text-gold-soft">{label}</span>
+                    <span className="block truncate text-xs opacity-70">{handle}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <p className="border-t border-gold/20 py-4 text-center text-xs opacity-60">
