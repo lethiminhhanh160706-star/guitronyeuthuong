@@ -139,7 +139,7 @@ function Project() {
 
           <Reveal delay={120}>
             <figure className="relative mx-auto w-full max-w-md lg:max-w-none">
-              <div className="absolute -inset-3 -z-10 rounded-2xl border border-gold/40" aria-hidden="true" />
+              <div className="absolute -inset-2 -z-10 rounded-2xl border border-gold/40 sm:-inset-3" aria-hidden="true" />
               <img
                 src={giftPhoto.url}
                 alt="Các hộp Trà Sâm Trường Nhân, một hộp mở để lộ các túi trà bên trong"
@@ -161,7 +161,7 @@ function Project() {
         <Section eyebrow="Sản phẩm" title="Trà Sâm Trường Nhân">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
             <Reveal>
-              <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-xl border border-gold/40 bg-card p-3 shadow-elegant lg:sticky lg:top-24 lg:max-w-none">
+              <figure className="mx-auto w-full max-w-[300px] overflow-hidden sm:max-w-sm rounded-xl border border-gold/40 bg-card p-3 shadow-elegant lg:sticky lg:top-24 lg:max-w-none">
                 <img
                   src={productPhoto.url}
                   alt="Hộp Trà Sâm Trường Nhân màu xanh mint, hộp mở chứa các túi lọc"
