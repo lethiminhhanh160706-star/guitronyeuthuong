@@ -13,7 +13,6 @@ import {
   Package,
   Scale,
   Sprout,
-  Tag,
   Timer,
   type LucideIcon,
 } from "lucide-react";
@@ -40,10 +39,13 @@ export const BRAND_FACTS: Row[] = [
   { icon: MapPin, label: "Địa chỉ doanh nghiệp", value: "33A, ngõ 48 phố Nguyễn Chánh, phường Yên Hòa, Hà Nội" },
 ];
 
+/** Giá niêm yết (đồng/hộp). */
+export const PRICE_VND = 390_000;
+export const formatPrice = (v: number) => `${v.toLocaleString("vi-VN")}đ`;
+
 export const PRODUCT_SPECS: Row[] = [
   { icon: Package, label: "Quy cách", value: "Hộp 15 túi lọc" },
   { icon: Scale, label: "Khối lượng", value: "2g/túi, tổng 30g/hộp" },
-  { icon: Tag, label: "Giá niêm yết", value: "390.000 đồng/hộp" },
   { icon: CalendarClock, label: "Hạn sử dụng", value: "12 tháng" },
   { icon: Leaf, label: "Dạng sản phẩm", value: "Trà túi lọc" },
 ];
@@ -179,14 +181,14 @@ function Project() {
                 </p>
                 <div className="mt-5 inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-lg bg-gradient-forest px-5 py-3 text-forest-foreground">
                   <span className="text-xs uppercase tracking-[0.25em] text-gold-soft">Giá niêm yết</span>
-                  <span className="font-display text-3xl lining-nums text-gold">390.000đ</span>
+                  <span className="font-display text-3xl lining-nums text-gold">{formatPrice(PRICE_VND)}</span>
                   <span className="text-sm opacity-80">/ hộp</span>
                 </div>
               </Reveal>
 
               <Reveal>
                 <h3 className="text-xl text-primary">Thông tin sản phẩm</h3>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   {PRODUCT_SPECS.map(({ icon, label, value }) => (
                     <div key={label} className="flex items-center gap-3 rounded-lg border border-border bg-card p-4">
                       <IconBadge icon={icon} />

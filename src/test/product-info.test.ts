@@ -1,12 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { BENEFITS, BRAND_FACTS, INGREDIENTS, PRODUCT_SPECS, STEPS } from "@/routes/du-an";
+import { BENEFITS, BRAND_FACTS, INGREDIENTS, PRICE_VND, PRODUCT_SPECS, STEPS, formatPrice } from "@/routes/du-an";
 
 const spec = (label: string) => PRODUCT_SPECS.find((s) => s.label === label)?.value;
 
 describe("Dự án – Trà Sâm Trường Nhân", () => {
   it("giá niêm yết là 390.000 đồng/hộp", () => {
-    expect(spec("Giá niêm yết")).toBe("390.000 đồng/hộp");
+    expect(PRICE_VND).toBe(390_000);
+    expect(formatPrice(PRICE_VND)).toBe("390.000đ");
   });
 
   it("quy cách hộp 15 túi lọc, 2g/túi, tổng 30g, hạn dùng 12 tháng", () => {
