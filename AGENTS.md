@@ -37,3 +37,8 @@ use the editor.
   drift to a different member count.
 - Unsupplied information stays as `[CẦN BỔ SUNG: …]` placeholders in the route
   files rather than invented copy.
+- Product and brand facts on the Dự án page live in the exported constants of
+  `src/routes/du-an.tsx` (price, specs, ingredients, steps, benefits) and are
+  asserted in `src/test/product-info.test.ts`, so supplied figures cannot drift.
+- Scroll-in motion goes through `Reveal` (`src/components/reveal.tsx`) and the
+  `reveal` CSS utility, which honours reduced-motion; keep animation in that one place.

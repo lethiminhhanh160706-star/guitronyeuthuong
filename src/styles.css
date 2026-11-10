@@ -35,6 +35,9 @@
   --color-beige: var(--beige);
   --color-forest: var(--forest);
   --color-forest-foreground: var(--forest-foreground);
+  --color-leaf: var(--leaf);
+  --color-leaf-foreground: var(--leaf-foreground);
+  --color-mint: var(--mint);
 }
 
 :root {
@@ -63,6 +66,10 @@
   --beige: oklch(0.9 0.04 78);
   --forest: oklch(0.24 0.05 158);
   --forest-foreground: oklch(0.95 0.025 85);
+  /* Brand accents: leaf #4C8C4A, mint #CFE8D2 */
+  --leaf: oklch(0.58 0.118 143);
+  --leaf-foreground: oklch(0.98 0.01 145);
+  --mint: oklch(0.907 0.04 149);
   --gradient-forest: linear-gradient(160deg, oklch(0.22 0.05 158), oklch(0.32 0.06 155));
   --gradient-gold: linear-gradient(90deg, oklch(0.68 0.12 75), oklch(0.84 0.1 88), oklch(0.68 0.12 75));
   --shadow-elegant: 0 20px 50px -20px oklch(0.24 0.05 158 / 0.35);
@@ -87,6 +94,20 @@
   color: transparent;
 }
 @utility shadow-elegant { box-shadow: var(--shadow-elegant); }
+@utility reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 @utility gold-rule {
   height: 1px;
   width: 4rem;
