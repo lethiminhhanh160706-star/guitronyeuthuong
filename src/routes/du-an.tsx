@@ -41,7 +41,7 @@ export const BRAND_FACTS: Row[] = [
 
 /** Giá niêm yết (đồng/hộp). */
 export const PRICE_VND = 390_000;
-export const formatPrice = (v: number) => `${v.toLocaleString("vi-VN")}đ`;
+export const formatPrice = (v: number) => `${String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}đ`;
 
 export const PRODUCT_SPECS: Row[] = [
   { icon: Package, label: "Quy cách", value: "Hộp 15 túi lọc" },
