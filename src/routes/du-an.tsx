@@ -159,7 +159,7 @@ function Project() {
         <Section eyebrow="Sản phẩm" title="Trà Sâm Trường Nhân">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
             <Reveal>
-              <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-xl border border-gold/40 bg-card p-3 shadow-elegant lg:max-w-none">
+              <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-xl border border-gold/40 bg-card p-3 shadow-elegant lg:sticky lg:top-24 lg:max-w-none">
                 <img
                   src={productPhoto.url}
                   alt="Hộp Trà Sâm Trường Nhân màu xanh mint, hộp mở chứa các túi lọc"
@@ -171,7 +171,7 @@ function Project() {
               </figure>
             </Reveal>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-8">
               <Reveal>
                 <p className="leading-relaxed text-muted-foreground">
                   Trà Sâm Trường Nhân là sản phẩm trà túi lọc được phối hợp từ 7 nguyên liệu sấy khô. Thiết kế túi lọc
@@ -179,7 +179,7 @@ function Project() {
                 </p>
                 <div className="mt-5 inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-lg bg-gradient-forest px-5 py-3 text-forest-foreground">
                   <span className="text-xs uppercase tracking-[0.25em] text-gold-soft">Giá niêm yết</span>
-                  <span className="font-display text-3xl text-gold">390.000đ</span>
+                  <span className="font-display text-3xl lining-nums text-gold">390.000đ</span>
                   <span className="text-sm opacity-80">/ hộp</span>
                 </div>
               </Reveal>
@@ -198,59 +198,60 @@ function Project() {
                   ))}
                 </div>
               </Reveal>
+
+              <Reveal>
+                <Card>
+                  <div className="flex items-center gap-3">
+                    <IconBadge icon={Coffee} />
+                    <h3 className="text-xl text-primary">Hướng dẫn sử dụng</h3>
+                  </div>
+                  <ol className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {STEPS.map((step, i) => (
+                      <li key={step} className="flex items-center gap-3 rounded-lg border border-border bg-background/60 p-3.5">
+                        <span
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${
+                            i === STEPS.length - 1 ? "bg-gold text-primary" : "bg-leaf text-leaf-foreground"
+                          }`}
+                        >
+                          {i + 1}
+                        </span>
+                        <span className="text-sm text-primary">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                  <div className="mt-5 flex items-start gap-3 border-t border-border pt-4 text-sm text-muted-foreground">
+                    <Archive className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                    <p>Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.</p>
+                  </div>
+                </Card>
+              </Reveal>
             </div>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <Reveal>
-              <Card className="h-full">
+          <Reveal className="mt-10">
+            <Card>
+              <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <IconBadge icon={Sprout} />
                   <h3 className="text-xl text-primary">Thành phần</h3>
                 </div>
-                <ul className="mt-6 space-y-4">
-                  {INGREDIENTS.map(({ name, percent }) => (
-                    <li key={name}>
-                      <div className="flex items-baseline justify-between gap-4 text-sm">
-                        <span className="font-medium text-primary">{name}</span>
-                        <span className="font-semibold tabular-nums text-leaf">{percent}%</span>
-                      </div>
-                      <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-mint" aria-hidden="true">
-                        <div className="h-full rounded-full bg-leaf" style={{ width: `${(percent / 25) * 100}%` }} />
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </Reveal>
-
-            <Reveal delay={120}>
-              <Card className="flex h-full flex-col">
-                <div className="flex items-center gap-3">
-                  <IconBadge icon={Coffee} />
-                  <h3 className="text-xl text-primary">Hướng dẫn sử dụng</h3>
-                </div>
-                <ol className="mt-6 space-y-3">
-                  {STEPS.map((step, i) => (
-                    <li key={step} className="flex items-center gap-4 rounded-lg border border-border bg-background/60 p-3.5">
-                      <span
-                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-lg ${
-                          i === STEPS.length - 1 ? "bg-gold text-primary" : "bg-leaf text-leaf-foreground"
-                        }`}
-                      >
-                        {i + 1}
-                      </span>
-                      <span className="text-primary">{step}</span>
-                    </li>
-                  ))}
-                </ol>
-                <div className="mt-auto flex items-start gap-3 border-t border-border pt-5 text-sm text-muted-foreground">
-                  <Archive className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-                  <p>Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.</p>
-                </div>
-              </Card>
-            </Reveal>
-          </div>
+                <p className="text-sm text-muted-foreground">7 nguyên liệu sấy khô · tổng 100%</p>
+              </div>
+              <ul className="mt-6 grid gap-x-10 gap-y-4 md:grid-cols-2">
+                {INGREDIENTS.map(({ name, percent }) => (
+                  <li key={name}>
+                    <div className="flex items-baseline justify-between gap-4 text-sm">
+                      <span className="font-medium text-primary">{name}</span>
+                      <span className="font-semibold tabular-nums text-leaf">{percent}%</span>
+                    </div>
+                    <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-mint" aria-hidden="true">
+                      <div className="h-full rounded-full bg-leaf" style={{ width: `${(percent / 25) * 100}%` }} />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </Reveal>
         </Section>
       </section>
 
@@ -261,7 +262,7 @@ function Project() {
             <Reveal key={no} delay={i * 100} className="h-full">
               <Card className="group h-full transition-transform duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between">
-                  <p className="font-display text-4xl text-gold">{no}</p>
+                  <p className="font-display text-4xl lining-nums text-gold">{no}</p>
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-mint text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-gold">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
@@ -278,7 +279,7 @@ function Project() {
       <section className="bg-gradient-forest text-forest-foreground">
         <Reveal className="mx-auto max-w-3xl px-4 py-20 text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-gold">Từ một tách trà đến thông điệp chiến dịch</p>
-          <p className="mt-6 font-display text-2xl italic leading-relaxed md:text-3xl">
+          <p className="mt-6 font-display text-2xl italic leading-relaxed text-balance md:text-3xl">
             “Hãm 1 túi trà trong 5–7 phút – và dành <span className="text-gold">7 phút bên cha mẹ</span>.”
           </p>
           <Link
